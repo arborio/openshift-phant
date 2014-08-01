@@ -1,7 +1,7 @@
 #!/usr/bin/env node
 
 var Phant = require('../index'),
-    dotenv = require('dotenv').load(),
+    //dotenv = require('dotenv').load(),
     path = require('path'),
     Keychain = require('phant-keychain-hex'),
     Meta = require('phant-meta-nedb'),
@@ -10,8 +10,6 @@ var Phant = require('../index'),
     ipaddress = process.env.OPENSHIFT_NODEJS_IP || "127.0.0.1";
     http_port = process.env.PHANT_PORT || 8090,
     telnet_port = process.env.PHANT_TELNET_PORT || 8091;
-    //http_port = process.env.OPENSHIFT_NODEJS_PORT || 8090,
-    //telnet_port = process.env.OPENSHIFT_NODEJS_PORT || 8091;
 
 var keys = Keychain({
   publicSalt: process.env.PHANT_PUBLIC_SALT || 'public salt',
@@ -24,7 +22,7 @@ var meta = Meta({
 
 var stream = Storage({
   directory: process.env.PHANT_STORAGEDIR || 'phant_streams',
-  cap: process.env.PHANT_CAP || 2 * 1024 * 1024 * 1024, // 2gb
+  cap: process.env.PHANT_CAP || 1 * 1024 * 1024 * 1024, // 1gb
   chunk: process.env.PHANT_CHUNK || 500 * 1024 // 500k
 });
 

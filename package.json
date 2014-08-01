@@ -1,7 +1,7 @@
 {
   "name": "phant",
   "version": "6.2.0",
-  "main": "index.js",
+  "main": "bin/serve",
   "description": "data collection server for the internet of things",
   "homepage": "https://github.com/sparkfun/phant",
   "bugs": "https://github.com/sparkfun/phant/issues",
@@ -25,11 +25,10 @@
     "node": "^0.10.29"
   },
   "bin": {
-    "phant": "bin/serve"
+    "phant": "./bin/serve"
   },
   "scripts": {
-    "start": "supervisor bin/serve",
-    "test": "grunt"
+    "start": "./bin/serve"
   },
   "dependencies": {
     "JSONStream": "^0.8.0",
